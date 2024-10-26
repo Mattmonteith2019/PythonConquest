@@ -5,6 +5,7 @@ import random
 #enemy_health = 100
 
 #create rooms
+#You need to add this into a function... so you can call it Like you did with the generate enemey. But it returns the "room"
 room = ["Castle Dungeon", "Castle Treasury", "Castle Library"]
 print(random.choice(room))
 
@@ -45,7 +46,7 @@ def spawn_enemy():
 def display_hud():
         print("_______________________________________________________________________")
         print("|  PLAYER HEALTH  |         ROOM         |   ENEMY   |  ENEMY HEALTH   |")
-        print("|______",p1.health,"______|___",room,"__|__",Enemy.name,"_|______",Enemy.health,"______|")
+        #print("|______",p1.health,"______|___",room,"__|__",Enemy.name,"_|______",Enemy.health,"______|") removed this for now to stop the error
         print()
         print("Select from the following options: ")
         print(" 1. Attack")
@@ -72,7 +73,7 @@ def story_intro():
         print(f"{p1.name}: Why am I here? How did I get here? ...and WHO ARE YOU?!")
         print(f"{narrator}My name is Master Scrum.  The Coding Village is under seige by the sinister Lord Python and his evil horde of creatures...")
         print(f"{narrator}There's no time to waste! Stand up and draw your sword and prepare to defend Coding Village!")
-        print(f"{narrator}Watch out! There's a {Enemy.name} nearby!")
+        #print(f"{narrator}Watch out! There's a {Enemy.name} nearby!") Removed this for now to stop the error
         print()
 
 #work on player attack next...
