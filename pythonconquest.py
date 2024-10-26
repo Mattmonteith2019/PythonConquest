@@ -16,6 +16,7 @@ class Player:
     def __init__(self, name, health):
         self.name = name
         self.health = health
+# get rid of this p1 = Player... the init looks good.
 p1 = Player("BRANDON", 100)
 
 #enemy class
@@ -24,15 +25,21 @@ class Enemy:
         self.name = name
         self.health = health
         
+        #ok this funciton is 90% there.. remove the return, just do the print now... and =remove the Enemy.name and make it self.name
+        # anything IN the function only takes in self, your alreayd in the enemey class
+        #the function wont WORK until we have it remove player health, but dont worry about that for now.
     def attack(self):
         damage = random.randint(1, 10)
         print(f"{Enemy.name} attacks for {damage} damage!")
         return damage
 
+#ok remember your enemey takes in 2 things, a name and health, so dont what you ened to do is do ("Ogre", 100),(Troll, 100) etc inside the array
 def spawn_enemy():
     enemies = ["Ogre", "Troll", "Goblin"]
+    #ok this is CLOSE but what 2 things does your enemy take in? name and health right? so insteady of enemy = its name, health =
     enemy = random.choice(enemies)
     print(enemy)
+    #PERFECT
     return Enemy(enemy)
  
 def display_hud():
@@ -68,6 +75,12 @@ def story_intro():
         print(f"{narrator}Watch out! There's a {Enemy.name} nearby!")
         print()
 
+#work on player attack next...
+# the function should be in the player class, and be only about 4 lines long
+# the def with the input of self and the enemy.
+# then the damage like your did in the enemey class.
+# then your print statement.
+# we will worry about the actual damage after you clean this up.....
 def player_attack():
     p1.health
     Enemy.health
