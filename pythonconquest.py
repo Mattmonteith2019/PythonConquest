@@ -4,13 +4,12 @@ import random
 #player_health = 100
 #enemy_health = 100
 
-#create rooms
-#You need to add this into a function... so you can call it Like you did with the generate enemey. But it returns the "room"
-room = ["Castle Dungeon", "Castle Treasury", "Castle Library"]
-print(random.choice(room))
-
-
-narrator = '\033[3m]'"NARRATOR: "'\033[0M'
+def room_list(sequence):
+    return random.choice(sequence)
+options = ["Dungeon", "Treasury", "Library"]
+room = room_list(options)
+ 
+narrator = '\033[3m'"NARRATOR: "'\033[0M'
 
 #player class
 class Player:
@@ -26,27 +25,21 @@ class Enemy:
         self.name = name
         self.health = health
         
-        #ok this funciton is 90% there.. remove the return, just do the print now... and =remove the Enemy.name and make it self.name
-        # anything IN the function only takes in self, your alreayd in the enemey class
-        #the function wont WORK until we have it remove player health, but dont worry about that for now.
     def attack(self):
         damage = random.randint(1, 10)
-        print(f"{Enemy.name} attacks for {damage} damage!")
+        print(f"{self.name} attacks for {damage} damage!")
         return damage
 
-#ok remember your enemey takes in 2 things, a name and health, so dont what you ened to do is do ("Ogre", 100),(Troll, 100) etc inside the array
 def spawn_enemy():
-    enemies = ["Ogre", "Troll", "Goblin"]
-    #ok this is CLOSE but what 2 things does your enemy take in? name and health right? so insteady of enemy = its name, health =
-    enemy = random.choice(enemies)
-    print(enemy)
-    #PERFECT
-    return Enemy(enemy)
+    enemies = [("Ogre", 100), ("Troll", 100), ("Goblin", 100)]
+    name, health = random.choice(enemies)
+    print(name)
+    return Enemy(name)
  
 def display_hud():
-        print("_______________________________________________________________________")
-        print("|  PLAYER HEALTH  |         ROOM         |   ENEMY   |  ENEMY HEALTH   |")
-        #print("|______",p1.health,"______|___",room,"__|__",Enemy.name,"_|______",Enemy.health,"______|") removed this for now to stop the error
+        print(r"_______________________________________________________________________")
+        print(r"|  PLAYER HEALTH  |         ROOM         |   ENEMY   |  ENEMY HEALTH   |")
+        #print(r"|______",p1.health,"______|___",room,"__|__",Enemy.name,"_|______",Enemy.health,"______|") removed this for now to stop the error
         print()
         print("Select from the following options: ")
         print(" 1. Attack")
@@ -79,7 +72,7 @@ def story_intro():
 #work on player attack next...
 # the function should be in the player class, and be only about 4 lines long
 # the def with the input of self and the enemy.
-# then the damage like your did in the enemey class.
+# then the damage like your did in the enemy class.
 # then your print statement.
 # we will worry about the actual damage after you clean this up.....
 def player_attack():
