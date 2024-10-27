@@ -8,6 +8,10 @@ def room_list(sequence):
     return random.choice(sequence)
 options = ["Dungeon", "Treasury", "Library"]
 room = room_list(options)
+
+def generate_room():
+    room_type = ["Dungeon", "Treasury", "Library"]
+    return random.choice(room_type)
  
 narrator = '\033[3m'"NARRATOR: "'\033[0M'
 
@@ -16,6 +20,13 @@ class Player:
     def __init__(self, name, health):
         self.name = name
         self.health = health
+
+    #here is the player attack. It will eventually take in the enemy along with self, but for now its just doing the damage and printing. 
+    def attack(self):
+        damage = random.randint(10, 20)
+        #we will put enemy damage here when its dime.
+        print(f"{self.name} attacks -- for {damage} damage!")
+
 # get rid of this p1 = Player... the init looks good.
 p1 = Player("BRANDON", 100)
 
@@ -68,42 +79,6 @@ def story_intro():
         print(f"{narrator}There's no time to waste! Stand up and draw your sword and prepare to defend Coding Village!")
         #print(f"{narrator}Watch out! There's a {Enemy.name} nearby!") Removed this for now to stop the error
         print()
-
-#work on player attack next...
-# the function should be in the player class, and be only about 4 lines long
-# the def with the input of self and the enemy.
-# then the damage like your did in the enemy class.
-# then your print statement.
-# we will worry about the actual damage after you clean this up.....
-def player_attack():
-    p1.health
-    Enemy.health
-    player_attack_value = [5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 75, 80, 85, 90, 95, 100]
-    p_attack_value = random.choice(player_attack_value)
-    enemy_attack_value = [5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 75, 80, 85, 90, 95, 100]
-    e_attack_value = random.choice(enemy_attack_value)
-    try:
-        if p_attack_value == e_attack_value:
-            p1.health -= p_attack_value
-            Enemy.health -= e_attack_value
-            print(f"{narrator}You both lost {p_attack_value} health!")
-            return
-        if p_attack_value >= e_attack_value:
-            Enemy.health -= p_attack_value
-            print(f"SLICE! {Enemy.name} has lost {p_attack_value} health!")
-            if Enemy.health <= 0:
-                Enemy.health = 0
-                print(f"{narrator}WELL DONE",p1.name,"! You killed the",Enemy.name,"!")
-            return
-        else:
-             p1.health -= e_attack_value
-             print(f"OUCH! {Enemy.name} struck you and you lost {e_attack_value} health!")
-             if p1.health <= 0:
-                 p1.health = 0
-                 print(f"{narrator}YOU'RE DEAD!")
-             return
-    except ValueError:
-        print()   
 
 
 #player flee function and divide player health in half
