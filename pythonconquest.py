@@ -1,27 +1,29 @@
 import random
 
-print(
+#TITLE FUNCTION
+def title():
+    print(
         r"______      _   _                 _____                                   _   "
     )
-print(
+    print(
         r"| ___ \    | | | |               /  __ \                                 | |  "
     )
-print(
+    print(
         r"| |_/ /   _| |_| |__   ___  _ __ | /  \/ ___  _ __   __ _ _   _  ___  ___| |_ "
     )
-print(
+    print(
         r"|  __/ | | | __| '_ \ / _ \| '_ \| |    / _ \| '_ \ / _` | | | |/ _ \/ __| __|"
     )
-print(
+    print(
         r"| |  | |_| | |_| | | | (_) | | | | \__/\ (_) | | | | (_| | |_| |  __/\__ \ |_ "
     )
-print(
+    print(
         r"\_|   \__, |\__|_| |_|\___/|_| |_|\____/\___/|_| |_|\__, |\__,_|\___||___/\__|"
     )
-print(
+    print(
         r"       __/ |                                           | |                    "
     )
-print(
+    print(
         r"      |___/                                            |_|                    "
     )
 print()
@@ -55,7 +57,7 @@ class Enemy:
         damage = random.randint(1, 20)
         player.health -= damage
         print(f"{self.name} attacks {player_name} with {weapon} for {damage} damage!")
-        return damage
+
 
 
 # RANDOM ENEMY SPAWN
@@ -91,7 +93,12 @@ weapon = enemy_weapon()
 
 
 #PRINT STATEMENTS TO CHECK THINGS ARE WORKING PROPERLY
+title()
+print()
+print()
 print(f"{player.name} is your player name!")
+print()
+print(f"You are in {room}.")
 print()
 print(f"Your current health = {player.health}")
 print()
@@ -103,7 +110,7 @@ print(f"{enemy1.name} health has diminished to {enemy1.health}")
 print()
 enemy1.attack(player)
 print()
-print(f"{player.name} health has diminished to {player.health}!")
+print(f"{player.name}'s health has diminished to {player.health}!")
 print()
 player.attack(enemy1)
 print()
@@ -111,7 +118,7 @@ print(f"{enemy1.name} health has diminished to {enemy1.health}")
 print()
 enemy1.attack(player)
 print()
-print(f"{player.name} health has diminished to {player.health}!")
+print(f"{player.name}'s health has diminished to {player.health}!")
 print()
 
 #NEXT STEP IS TO CREATE A MENU FOR THE PLAYER TO DECIDE WHETHER TO ATTACK, HEAL, EXIT. 
