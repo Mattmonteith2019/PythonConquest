@@ -142,7 +142,7 @@ def display_hud(player, enemy, weapon, room):
     print()
 
 #DISPLAY HUD2
-def ingame_hud(player, enemy):
+def ingame_hud(player, enemy, weapon):
     print(f"{player.name} HEALTH: {player.health}")
     print(f"{enemy.name} HEALTH: {enemy.health}")
     print()
@@ -166,7 +166,7 @@ def run():
     print()
     display_hud(player, enemy1, weapon, room)    
     while player.is_alive():
-        ingame_hud(player, enemy1)
+        ingame_hud(player, enemy1, weapon)
         choice = input("Make your choice (1-3): ")
         print()
         if choice == "1":
